@@ -8,6 +8,7 @@ import com.logistics.load_optimizer.model.Order;
 import com.logistics.load_optimizer.model.Truck;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -35,6 +36,7 @@ public class LoadOptimizerService {
      * @param request The optimization request containing truck and orders
      * @return The optimized load solution
      */
+    @Cacheable(value = "optimizedLoad",key = "#request.hashcode()")
     public LoadOptimizationResponse optimizeLoad(LoadOptimizationRequest request) {
         logger.info("Starting load optimization for truck: {}", request.getTruck().getId());
 
