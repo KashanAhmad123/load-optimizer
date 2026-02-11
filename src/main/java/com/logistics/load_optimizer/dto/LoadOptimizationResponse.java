@@ -4,9 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
-/**
- * Data Transfer Object for Load Optimization Response
- */
+
 public class LoadOptimizationResponse {
 
     @JsonProperty("truck_id")
